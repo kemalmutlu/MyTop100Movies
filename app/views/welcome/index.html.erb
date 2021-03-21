@@ -1,13 +1,15 @@
-<div class="container mt-5">
+<div class="container mt-5 welcome">
   <div class="row">
     <% @movies.each do |movie| %>
       <div class="col-2 mb-3">
-        <div class="card">
-          <img src="https://image.tmdb.org/t/p/w500<%= movie['poster_path'] %>" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text text-center text-white"><strong><%= movie['original_title'] %></strong></p>
+        <a href="<%= movie_show_path(movie['id']) %>">
+          <div class="card">
+            <img src="https://image.tmdb.org/t/p/w500<%= movie['poster_path'] %>" class="card-img-top" alt="<%= movie['original_title'] %>">
+            <div class="card-body">
+              <p class="card-text text-center text-white"><strong><%= movie['original_title'] %></strong></p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     <% end %>
   </div>
