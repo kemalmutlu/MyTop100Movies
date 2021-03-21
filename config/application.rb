@@ -34,5 +34,8 @@ module MyTop100Movies
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.assets.paths << Rails.root.join("lib", "images")
+
   end
 end

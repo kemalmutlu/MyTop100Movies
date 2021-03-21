@@ -14,10 +14,15 @@
         </li>
 
       </ul>
-        <div>
-          <a class="btn btn-outline-warning mr-4 right-1" href="#">Your Dashboard</a>
+      <div>
+        <% unless current_user.present? %>
+          <%= link_to "Login", new_user_session_path, :class => 'btn btn-outline-warning mr-4 right-1' %>
           <a class="btn btn-outline-light mr-4" href="<%= new_user_registration_path %>">Register</a>
-        </div>
+        <% else %>
+          <a class="btn btn-outline-warning mr-4 right-1" href="#">Your Dashboard</a>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-warning mr-4 right-1'  %>
+      <% end %>
+      </div>
     </div>
   </div>
 </nav>
