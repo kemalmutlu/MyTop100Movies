@@ -1,0 +1,13 @@
+<div class='text-white'>
+  <%= @movie.inspect %>
+</div>
+
+<div class="container movie-show">
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <img src="https://image.tmdb.org/t/p/w500<%= @movie['poster_path'] %>" class="card-img-top" alt="<%= @movie['original_title'] %>">
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,8 +8,8 @@ class WelcomeController < ApplicationController
   private
   def get_movies
     unless Rails.cache.read("movies")
-      @movies = HTTParty.get("https://api.themoviedb.org/3/trending/movie/day?api_key=#{ENV['TMDB_API_KEY']}")['results']
-      Rails.cache.write("movies", @movies, :expires_in => 30.minutes)
+      @movies = request_api('trending/movie/day')
+      Rails.cache.write("movies", @movies['results'], :expires_in => 30.minutes)
     end
   end
 end
