@@ -17,3 +17,11 @@
   padding: 0.5rem 0.5rem !important;
   background-color: #27374D !important;
 }
+.img-holder {
+  position: relative;
+}
+.img-holder .link {
+  position: absolute;
+  bottom: 10px; /*your button position*/
+  right: 10px; /*your button position*/
+}
