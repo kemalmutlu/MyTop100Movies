@@ -29,6 +29,8 @@ gem 'httparty'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
+gem "font-awesome-rails"
+
 
 
 group :development, :test do
