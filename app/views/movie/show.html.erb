@@ -12,13 +12,15 @@
       <p>Language: <b><%= @movie['original_language'].upcase %></b></p>
       <p>Category: <b><%= @movie['genres'].map {|genre| genre['name']}.join(', ') %></b></p>
       <p>Vote Average: <b><%= @movie['vote_average'] %></b></p>
-      <div data-controller="favoriteUserMovie">
-          <button
-                  data-favoriteUserMovie-target="movie"
-                  data-action="click->favoriteUserMovie#check"
-                  data-movie-id="<%= @movie['id'] %>">
-          </button>
-      </div>
+      <% if user_signed_in? %>
+        <div data-controller="favoriteUserMovie">
+            <button
+                    data-favoriteUserMovie-target="movie"
+                    data-action="click->favoriteUserMovie#check"
+                    data-movie-id="<%= @movie['id'] %>">
+            </button>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
