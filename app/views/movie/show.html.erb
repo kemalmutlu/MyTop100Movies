@@ -12,6 +12,20 @@
       <p>Language: <b><%= @movie['original_language'].upcase %></b></p>
       <p>Category: <b><%= @movie['genres'].map {|genre| genre['name']}.join(', ') %></b></p>
       <p>Vote Average: <b><%= @movie['vote_average'] %></b></p>
+      <div data-controller="favoriteUserMovie">
+          <button
+                  data-favoriteUserMovie-target="movie"
+                  data-action="click->favoriteUserMovie#check"
+                  data-movie-id="<%= @movie['id'] %>">
+          </button>
+      </div>
     </div>
   </div>
 </div>
+
+<% content_for :js do %>
+  <script>
+    let favorite_movie_url = "<%= movie_favorite_check_path %>"
+    let user_movie_present_url = "<%= is_user_movie_present_path(@movie['id']) %>"
+  </script>
+<% end %>
